@@ -37,7 +37,7 @@
 *   **前端**: React + TypeScript + Vite - 负责 UI 交互。
 *   **样式**: TailwindCSS - 现代化响应式布局。
 *   **编辑器**: @uiw/react-codemirror。
-*   **渲染**: react-markdown + rehype-highlight (自动忽略不支持的语言标签)。
+*   **渲染**: react-markdown + remark-math + rehype-katex (LaTeX 数学公式渲染) + rehype-highlight (自动忽略不支持的语言标签)。
 
 ---
 
