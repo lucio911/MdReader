@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { ReadFile, SaveFile, GetCommandLineArgs, OpenFileDialog, SaveFileDialog, RegisterContextMenu, UnregisterContextMenu, CheckPendingFiles } from '../wailsjs/go/main/App';
 import { EventsOn } from '../wailsjs/runtime/runtime'; 
 import { MarkdownPreview } from './components/MarkdownPreview';
+import { MarkdownTOC } from './components/MarkdownTOC';
 import { ErrorBoundary } from './components/ErrorBoundary'; 
 import CodeMirror from '@uiw/react-codemirror';
 import { markdown } from '@codemirror/lang-markdown';
@@ -454,17 +455,20 @@ const TabContent = ({ tab, isActive, updateTab }: { tab: Tab, isActive: boolean,
         >
             {tab.isEditMode ? (
                 <div className="max-w-5xl mx-auto bg-white shadow-sm rounded-lg overflow-hidden h-full border border-gray-200">
-                    <CodeMirror 
-                        value={tab.content} 
-                        height="100%" 
-                        extensions={editorExtensions} 
+                    <CodeMirror
+                        value={tab.content}
+                        height="100%"
+                        extensions={editorExtensions}
                         onChange={(val) => updateTab(tab.id, { content: val, isDirty: true })}
                         className="text-base h-full"
                     />
                 </div>
             ) : (
-                <div className="h-full overflow-visible">
-                    <MarkdownPreview content={tab.content} visible={isActive} />
+                <div className="flex h-full gap-0">
+                    <MarkdownTOC content={tab.content} />
+                    <div className="flex-1 overflow-auto">
+                        <MarkdownPreview content={tab.content} visible={isActive} />
+                    </div>
                 </div>
             )}
         </div>

@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeSlug from 'rehype-slug';
 import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/github.css';
 import 'katex/dist/katex.min.css';
@@ -74,7 +75,7 @@ export const MarkdownPreview: React.FC<MarkdownPreviewProps> = memo(({ content, 
             <div id="markdown-preview" className="word-theme prose prose-slate mx-auto w-full">
                 <ReactMarkdown 
                     remarkPlugins={[remarkGfm, remarkMath]}
-                    rehypePlugins={[rehypeKatex, [rehypeHighlight, { ignoreMissing: true }]]}
+                    rehypePlugins={[rehypeSlug, rehypeKatex, [rehypeHighlight, { ignoreMissing: true }]]}
                 >
                     {displayContent}
                 </ReactMarkdown>
