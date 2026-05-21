@@ -1,5 +1,5 @@
 # MdReader - 专业的 Markdown 阅读与转换工具
-
+# 感谢https://github.com/wangbao0754/MdReader 的开源，我只是在使用过程中发现无法渲染数学公式，以此加了一点点小小修改，感谢！！！
 
 **MdReader** 是一款专为 Windows 用户打造的轻量级 Markdown 阅读器与编辑器。它不仅拥有美观的现代化界面，更解决了 Markdown 用户最大的痛点——**将内容完美格式化并粘贴到 Microsoft Word 中**。
 
